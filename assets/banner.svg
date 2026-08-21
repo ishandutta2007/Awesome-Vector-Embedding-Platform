@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="380" style="background: transparent;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+
+    <linearGradient id="primaryTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8">
+        <animate attributeName="stop-color" values="#38bdf8;#818cf8;#c084fc;#38bdf8" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#818cf8">
+        <animate attributeName="stop-color" values="#818cf8;#c084fc;#38bdf8;#818cf8" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#c084fc">
+        <animate attributeName="stop-color" values="#c084fc;#38bdf8;#818cf8;#c084fc" dur="8s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <linearGradient id="subTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+
+    <linearGradient id="lineGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.1" />
+    </linearGradient>
+
+    <linearGradient id="lineGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.1" />
+    </linearGradient>
+
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#334155" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glowPurple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glowSoft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.8" stroke-opacity="0.4" />
+    </pattern>
+  </defs>
+
+  <style>
+    .node-pulse {
+      animation: pulse 3s infinite ease-in-out;
+    }
+    .node-float {
+      animation: float 6s infinite ease-in-out;
+    }
+    .dash-flow {
+      stroke-dasharray: 6, 8;
+      animation: dash 20s linear infinite;
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: -200;
+      }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.25); opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .title-font {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .mono-font {
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+    }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1200" height="380" rx="16" fill="url(#bgGrad)" stroke="#334155" stroke-width="1.5" />
+  
+  <!-- Subtle Grid overlay -->
+  <rect width="1200" height="380" rx="16" fill="url(#grid)" />
+
+  <!-- Ambient Glow Orbs -->
+  <circle cx="150" cy="190" r="130" fill="#38bdf8" opacity="0.08" filter="url(#glowSoft)">
+    <animate attributeName="cx" values="150;200;150" dur="10s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="1050" cy="190" r="140" fill="#a855f7" opacity="0.08" filter="url(#glowSoft)">
+    <animate attributeName="cy" values="190;140;190" dur="12s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Left Side: Vector Space Network Graph (Dynamic) -->
+  <g opacity="0.85">
+    <!-- Connecting Vector Lines -->
+    <line x1="80" y1="120" x2="160" y2="80" stroke="url(#lineGrad1)" stroke-width="1.5" class="dash-flow" />
+    <line x1="160" y1="80" x2="240" y2="140" stroke="url(#lineGrad1)" stroke-width="1.5" />
+    <line x1="80" y1="120" x2="110" y2="230" stroke="url(#lineGrad1)" stroke-width="1.5" />
+    <line x1="110" y1="230" x2="220" y2="270" stroke="url(#lineGrad1)" stroke-width="1.5" class="dash-flow" />
+    <line x1="240" y1="140" x2="220" y2="270" stroke="url(#lineGrad1)" stroke-width="1.5" />
+    <line x1="240" y1="140" x2="170" y2="200" stroke="#818cf8" stroke-opacity="0.4" stroke-width="1.5" />
+    <line x1="160" y1="80" x2="170" y2="200" stroke="#818cf8" stroke-opacity="0.4" stroke-width="1.5" />
+    <line x1="110" y1="230" x2="170" y2="200" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1.5" />
+
+    <!-- Moving Data Packet on Left Network -->
+    <circle r="3.5" fill="#38bdf8" filter="url(#glowCyan)">
+      <animateMotion path="M 80,120 L 160,80 L 240,140 L 220,270 L 110,230 Z" dur="7s" repeatCount="indefinite" />
+    </circle>
+    <circle r="3" fill="#c084fc" filter="url(#glowPurple)">
+      <animateMotion path="M 110,230 L 170,200 L 240,140 L 160,80 Z" dur="5s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- Left Nodes -->
+    <circle cx="80" cy="120" r="5" fill="#38bdf8" filter="url(#glowCyan)" />
+    <circle cx="160" cy="80" r="7" fill="#818cf8" filter="url(#glowCyan)">
+      <animate attributeName="r" values="6;8;6" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="240" cy="140" r="6" fill="#38bdf8" filter="url(#glowCyan)" />
+    <circle cx="110" cy="230" r="5.5" fill="#c084fc" filter="url(#glowPurple)" />
+    <circle cx="220" cy="270" r="6.5" fill="#818cf8" filter="url(#glowCyan)" />
+    <circle cx="170" cy="200" r="8" fill="#38bdf8" filter="url(#glowCyan)">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Right Side: High-Dimensional Clusters & Similarity Search (Dynamic) -->
+  <g opacity="0.85">
+    <line x1="960" y1="90" x2="1050" y2="130" stroke="url(#lineGrad2)" stroke-width="1.5" />
+    <line x1="1050" y1="130" x2="1120" y2="80" stroke="url(#lineGrad2)" stroke-width="1.5" class="dash-flow" />
+    <line x1="1050" y1="130" x2="1030" y2="240" stroke="url(#lineGrad2)" stroke-width="1.5" />
+    <line x1="1030" y1="240" x2="1110" y2="260" stroke="url(#lineGrad2)" stroke-width="1.5" />
+    <line x1="960" y1="90" x2="980" y2="200" stroke="url(#lineGrad2)" stroke-width="1.5" />
+    <line x1="980" y1="200" x2="1030" y2="240" stroke="url(#lineGrad2)" stroke-width="1.5" class="dash-flow" />
+    <line x1="980" y1="200" x2="1050" y2="130" stroke="#f472b6" stroke-opacity="0.4" stroke-width="1.5" />
+
+    <!-- Moving Data Packet on Right Network -->
+    <circle r="3.5" fill="#f472b6" filter="url(#glowPurple)">
+      <animateMotion path="M 1120,80 L 1050,130 L 980,200 L 1030,240 L 1110,260 Z" dur="6.5s" repeatCount="indefinite" />
+    </circle>
+    <circle r="3" fill="#38bdf8" filter="url(#glowCyan)">
+      <animateMotion path="M 960,90 L 1050,130 L 1030,240 Z" dur="4.5s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- Right Nodes -->
+    <circle cx="960" cy="90" r="5.5" fill="#f472b6" filter="url(#glowPurple)" />
+    <circle cx="1050" cy="130" r="8" fill="#c084fc" filter="url(#glowPurple)">
+      <animate attributeName="r" values="7;9;7" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="1120" cy="80" r="5" fill="#818cf8" filter="url(#glowCyan)" />
+    <circle cx="980" cy="200" r="7" fill="#f472b6" filter="url(#glowPurple)" />
+    <circle cx="1030" cy="240" r="6" fill="#38bdf8" filter="url(#glowCyan)" />
+    <circle cx="1110" cy="260" r="6.5" fill="#ec4899" filter="url(#glowPurple)" />
+  </g>
+
+  <!-- Central Content Area -->
+  <!-- Top Category Tag -->
+  <g transform="translate(600, 65)">
+    <rect x="-140" y="-16" width="280" height="32" rx="16" fill="#1e293b" stroke="#475569" stroke-width="1" />
+    <circle cx="-115" cy="0" r="4" fill="#38bdf8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <text x="5" y="5" text-anchor="middle" fill="#94a3b8" font-size="13" font-weight="600" class="mono-font" letter-spacing="1">VECTOR EMBEDDING ECOSYSTEM</text>
+  </g>
+
+  <!-- Main Title -->
+  <g transform="translate(600, 135)">
+    <text x="0" y="0" text-anchor="middle" font-size="44" class="title-font" fill="url(#primaryTextGrad)" filter="url(#glowCyan)">
+      Awesome Vector Embedding Platform
+    </text>
+  </g>
+
+  <!-- Subtitle -->
+  <g transform="translate(600, 180)">
+    <text x="0" y="0" text-anchor="middle" fill="url(#subTextGrad)" font-size="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="400">
+      Curated Vector Databases, Embedding APIs, Similarity Search &amp; RAG Retrieval Infrastructure
+    </text>
+  </g>
+
+  <!-- Feature Pills / Badges in Center Bottom -->
+  <g transform="translate(600, 240)">
+    <!-- Pill 1: Vector DBs -->
+    <g transform="translate(-255, 0)">
+      <rect x="-70" y="-15" width="140" height="30" rx="8" fill="url(#badgeGrad)" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.6" />
+      <text x="0" y="5" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="600" class="mono-font">⚡ Vector DBs</text>
+    </g>
+
+    <!-- Pill 2: Embedding Models -->
+    <g transform="translate(-85, 0)">
+      <rect x="-80" y="-15" width="160" height="30" rx="8" fill="url(#badgeGrad)" stroke="#818cf8" stroke-width="1" stroke-opacity="0.6" />
+      <text x="0" y="5" text-anchor="middle" fill="#a5b4fc" font-size="12" font-weight="600" class="mono-font">🧠 Embedding APIs</text>
+    </g>
+
+    <!-- Pill 3: Hybrid & ANN Search -->
+    <g transform="translate(90, 0)">
+      <rect x="-75" y="-15" width="150" height="30" rx="8" fill="url(#badgeGrad)" stroke="#c084fc" stroke-width="1" stroke-opacity="0.6" />
+      <text x="0" y="5" text-anchor="middle" fill="#e9d5ff" font-size="12" font-weight="600" class="mono-font">🔍 ANN &amp; Hybrid</text>
+    </g>
+
+    <!-- Pill 4: Production RAG -->
+    <g transform="translate(255, 0)">
+      <rect x="-70" y="-15" width="140" height="30" rx="8" fill="url(#badgeGrad)" stroke="#f472b6" stroke-width="1" stroke-opacity="0.6" />
+      <text x="0" y="5" text-anchor="middle" fill="#fbcfe8" font-size="12" font-weight="600" class="mono-font">🚀 Production RAG</text>
+    </g>
+  </g>
+
+  <!-- Bottom Dynamic Metrics Line -->
+  <g transform="translate(600, 310)">
+    <line x1="-320" y1="0" x2="320" y2="0" stroke="#334155" stroke-width="1" />
+    <text x="0" y="24" text-anchor="middle" fill="#64748b" font-size="13" class="mono-font">
+      Dense &amp; Sparse Retrieval • Multimodal Embeddings • HNSW / DiskANN • Late Interaction / ColBERT
+    </text>
+  </g>
+</svg>
