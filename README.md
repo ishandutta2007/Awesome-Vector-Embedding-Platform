@@ -1,7 +1,7 @@
 # Awesome-Vector-Embedding-Platform
 
 Markdown
-# Top Vector Embedding Platform Ecosystem
+## Top Vector Embedding Platform Ecosystem
 
 
 **Curated List of SaaS/Hosted Platforms & Open-Source GitHub Projects**  
